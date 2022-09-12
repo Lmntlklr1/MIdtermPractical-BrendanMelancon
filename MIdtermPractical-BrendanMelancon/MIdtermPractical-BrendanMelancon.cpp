@@ -12,10 +12,10 @@ int main()
     std::cout << "How many questions would you like to answer? (Max:10)\n\n";
     int consolein;
     std::cin >> consolein;
-
+    int numberCorrect = 0;
     for (int i = 0; i < consolein; i++)
     {
-        std::cout << "\n\nPlease enter corresponding number\n\nNote that all answer are in order of::\n1\n2\n3\n4\n\n";
+        std::cout << "\n\nPlease enter corresponding number\n\nNote that all answer are in order of::\n0\n1\n2\n3\n\n";
         int index = rand() % questions.size() + 1;
         switch (index)
         {
@@ -28,28 +28,40 @@ int main()
                 int getI;
                 for (int i = 0; i < 4; i++)
                 {
-                    int randomindex = rand() % 10;
+                    int randomindex = rand() % answertemp.size();
                     if (randomnum == i)
                     {
-                        std::cout << answertemp.at(0);
+                        std::cout << "Mario\n\n";
                         answertemp.erase(answertemp.begin());
                         getI = i;
                     }
                     else
                     {
+                        if (answertemp.at(randomindex) == "Mario\n\n")
+                        {
+                            randomindex = rand() % answertemp.size();
+                        }
                         std::cout << answertemp.at(randomindex);
-                        answertemp.erase(answertemp.begin() + (randomindex));
+                        if (i == 0)
+                            answertemp.erase(answertemp.begin() + (randomindex));
+                        else
+                        {
+                            if (randomindex == 0)
+                                randomindex = 1;
+                            answertemp.erase(answertemp.begin() + (randomindex - 1));
+                        }
                     }
                 }
                 std::string AnswerToQuestion;
                 std::cin >> AnswerToQuestion;
                 if (AnswerToQuestion == std::to_string(getI))
                 {
-                    std::cout << "Correct";
+                    std::cout << "Correct\n\n";
+                    numberCorrect++;
                 }
                 else
                 {
-                    std::cout << "Incorrect";
+                    std::cout << "Incorrect\n\n";
                 }
                 NoQuestion[0] = false;
             }
@@ -70,25 +82,37 @@ int main()
                     int randomindex = rand() % answertemp.size();
                     if (randomnum == i)
                     {
-                        std::cout << answertemp.at(1);
+                        std::cout << "Luigi\n\n";
                         answertemp.erase(answertemp.begin() + 1);
                         getI = i;
                     }
                     else
                     {
+                        if (answertemp.at(randomindex) == "Luigi\n\n")
+                        {
+                            randomindex = rand() % answertemp.size();
+                        }
                         std::cout << answertemp.at(randomindex);
-                        answertemp.erase(answertemp.begin() + (randomindex));
+                        if (i == 0)
+                            answertemp.erase(answertemp.begin() + (randomindex));
+                        else
+                        {
+                            if (randomindex == 0)
+                                randomindex = 1;
+                            answertemp.erase(answertemp.begin() + (randomindex - 1));
+                        }
                     }
                 }
                 std::string AnswerToQuestion;
                 std::cin >> AnswerToQuestion;
                 if (AnswerToQuestion == std::to_string(getI))
                 {
-                    std::cout << "Correct";
+                    std::cout << "Correct\n\n";
+                    numberCorrect++;
                 }
                 else
                 {
-                    std::cout << "Incorrect";
+                    std::cout << "Incorrect\n\n";
                 }
                 NoQuestion[1] = false;
             }
@@ -104,28 +128,40 @@ int main()
                 int getI;
                 for (int i = 0; i < 4; i++)
                 {
-                    int randomindex = rand() % 10;
+                    int randomindex = rand() % answertemp.size();
                     if (randomnum == i)
                     {
-                        std::cout << answertemp.at(2);
+                        std::cout << "Kirby\n\n";
                         answertemp.erase(answertemp.begin() + 2);
                         getI = i;
                     }
                     else
                     {
+                        if (answertemp.at(randomindex) == "Kirby\n\n")
+                        {
+                            randomindex = rand() % answertemp.size();
+                        }
                         std::cout << answertemp.at(randomindex);
-                        answertemp.erase(answertemp.begin() + (randomindex));
+                        if (i == 0)
+                            answertemp.erase(answertemp.begin() + (randomindex));
+                        else
+                        {
+                            if (randomindex == 0)
+                                randomindex = 1;
+                            answertemp.erase(answertemp.begin() + (randomindex - 1));
+                        }
                     }
                 }
                 std::string AnswerToQuestion;
                 std::cin >> AnswerToQuestion;
                 if (AnswerToQuestion == std::to_string(getI))
                 {
-                    std::cout << "Correct";
+                    std::cout << "Correct\n\n";
+                    numberCorrect++;
                 }
                 else
                 {
-                    std::cout << "Incorrect";
+                    std::cout << "Incorrect\n\n";
                 }
                 NoQuestion[2] = false;
             }
@@ -141,28 +177,40 @@ int main()
                 int getI;
                 for (int i = 0; i < 4; i++)
                 {
-                    int randomindex = rand() % 10;
+                    int randomindex = rand() % answertemp.size();
                     if (randomnum == i)
                     {
-                        std::cout << answertemp.at(3);
+                        std::cout << "Metaknight\n\n";
                         answertemp.erase(answertemp.begin() + 3);
                         getI = i;
                     }
                     else
                     {
+                        if (answertemp.at(randomindex) == "Metaknight\n\n")
+                        {
+                            randomindex = rand() % answertemp.size();
+                        }
                         std::cout << answertemp.at(randomindex);
-                        answertemp.erase(answertemp.begin() + (randomindex - i));
+                        if (i == 0)
+                            answertemp.erase(answertemp.begin() + (randomindex));
+                        else
+                        {
+                            if (randomindex == 0)
+                                randomindex = 1;
+                            answertemp.erase(answertemp.begin() + (randomindex - 1));
+                        }
                     }
                 }
                 std::string AnswerToQuestion;
                 std::cin >> AnswerToQuestion;
                 if (AnswerToQuestion == std::to_string(getI))
                 {
-                    std::cout << "Correct";
+                    std::cout << "Correct\n\n";
+                    numberCorrect++;
                 }
                 else
                 {
-                    std::cout << "Incorrect";
+                    std::cout << "Incorrect\n\n";
                 }
                 NoQuestion[3] = false;
             }
@@ -178,28 +226,40 @@ int main()
                 int getI;
                 for (int i = 0; i < 4; i++)
                 {
-                    int randomindex = rand() % 10;
+                    int randomindex = rand() % answertemp.size();
                     if (randomnum == i)
                     {
-                        std::cout << answertemp.at(4 - i);
+                        std::cout << "Inkling\n\n";
                         answertemp.erase(answertemp.begin() + 4 - i);
                         getI = i;
                     }
                     else
                     {
-                        std::cout << answertemp.at(randomindex - i);
-                        answertemp.erase(answertemp.begin() + (randomindex - i));
+                        if (answertemp.at(randomindex) == "Inkling\n\n")
+                        {
+                            randomindex = rand() % answertemp.size();
+                        }
+                        std::cout << answertemp.at(randomindex);
+                        if (i == 0)
+                            answertemp.erase(answertemp.begin() + (randomindex));
+                        else
+                        {
+                            if (randomindex == 0)
+                                randomindex = 1;
+                            answertemp.erase(answertemp.begin() + (randomindex - 1));
+                        }
                     }
                 }
                 std::string AnswerToQuestion;
                 std::cin >> AnswerToQuestion;
                 if (AnswerToQuestion == std::to_string(getI))
                 {
-                    std::cout << "Correct";
+                    std::cout << "Correct\n\n";
+                    numberCorrect++;
                 }
                 else
                 {
-                    std::cout << "Incorrect";
+                    std::cout << "Incorrect\n\n";
                 }
                 NoQuestion[4] = false;
             }
@@ -215,28 +275,40 @@ int main()
                 int getI;
                 for (int i = 0; i < 4; i++)
                 {
-                    int randomindex = rand() % 10;
+                    int randomindex = rand() % answertemp.size();
                     if (randomnum == i)
                     {
-                        std::cout << answertemp.at(5 - i);
+                        std::cout << "Octoling\n\n";
                         answertemp.erase(answertemp.begin() + 5 - i);
                         getI = i;
                     }
                     else
                     {
-                        std::cout << answertemp.at(randomindex - i);
-                        answertemp.erase(answertemp.begin() + (randomindex - i));
+                        if (answertemp.at(randomindex) == "Octoling\n\n")
+                        {
+                            randomindex = rand() % answertemp.size();
+                        }
+                        std::cout << answertemp.at(randomindex);
+                        if (i == 0)
+                            answertemp.erase(answertemp.begin() + (randomindex));
+                        else
+                        {
+                            if (randomindex == 0)
+                                randomindex = 1;
+                            answertemp.erase(answertemp.begin() + (randomindex - 1));
+                        }
                     }
                 }
                 std::string AnswerToQuestion;
                 std::cin >> AnswerToQuestion;
                 if (AnswerToQuestion == std::to_string(getI))
                 {
-                    std::cout << "Correct";
+                    std::cout << "Correct\n\n";
+                    numberCorrect++;
                 }
                 else
                 {
-                    std::cout << "Incorrect";
+                    std::cout << "Incorrect\n\n";
                 }
                 NoQuestion[5] = false;
             }
@@ -252,28 +324,40 @@ int main()
                 int getI;
                 for (int i = 0; i < 4; i++)
                 {
-                    int randomindex = rand() % 10;
+                    int randomindex = rand() % answertemp.size();
                     if (randomnum == i)
                     {
-                        std::cout << answertemp.at(6 - i);
+                        std::cout << "Mother Brain\n\n";
                         answertemp.erase(answertemp.begin() + 6 - i);
                         getI = i;
                     }
                     else
                     {
-                        std::cout << answertemp.at(randomindex - i);
-                        answertemp.erase(answertemp.begin() + (randomindex - i));
+                        if (answertemp.at(randomindex) == "Mother Brain\n\n")
+                        {
+                            randomindex = rand() % answertemp.size();
+                        }
+                        std::cout << answertemp.at(randomindex);
+                        if (i == 0)
+                            answertemp.erase(answertemp.begin() + (randomindex));
+                        else
+                        {
+                            if (randomindex == 0)
+                                randomindex = 1;
+                            answertemp.erase(answertemp.begin() + (randomindex - 1));
+                        }
                     }
                 }
                 std::string AnswerToQuestion;
                 std::cin >> AnswerToQuestion;
                 if (AnswerToQuestion == std::to_string(getI))
                 {
-                    std::cout << "Correct";
+                    std::cout << "Correct\n\n";
+                    numberCorrect++;
                 }
                 else
                 {
-                    std::cout << "Incorrect";
+                    std::cout << "Incorrect\n\n";
                 }
                 NoQuestion[6] = false;
             }
@@ -289,28 +373,40 @@ int main()
                 int getI;
                 for (int i = 0; i < 4; i++)
                 {
-                    int randomindex = rand() % 10;
+                    int randomindex = rand() % answertemp.size();
                     if (randomnum == i)
                     {
-                        std::cout << answertemp.at(7 - i);
+                        std::cout << "Samus Aaron\n\n";
                         answertemp.erase(answertemp.begin() + 7 - i);
                         getI = i;
                     }
                     else
                     {
-                        std::cout << answertemp.at(randomindex - i);
-                        answertemp.erase(answertemp.begin() + (randomindex - i));
+                        if (answertemp.at(randomindex) == "Samus Aaron\n\n")
+                        {
+                            randomindex = rand() % answertemp.size();
+                        }
+                        std::cout << answertemp.at(randomindex);
+                        if (i == 0)
+                            answertemp.erase(answertemp.begin() + (randomindex));
+                        else
+                        {
+                            if (randomindex == 0)
+                                randomindex = 1;
+                            answertemp.erase(answertemp.begin() + (randomindex - 1));
+                        }
                     }
                 }
                 std::string AnswerToQuestion;
                 std::cin >> AnswerToQuestion;
                 if (AnswerToQuestion == std::to_string(getI))
                 {
-                    std::cout << "Correct";
+                    std::cout << "Correct\n\n";
+                    numberCorrect++;
                 }
                 else
                 {
-                    std::cout << "Incorrect";
+                    std::cout << "Incorrect\n\n";
                 }
                 NoQuestion[7] = false;
             }
@@ -326,28 +422,40 @@ int main()
                 int getI;
                 for (int i = 0; i < 4; i++)
                 {
-                    int randomindex = rand() % 10;
+                    int randomindex = rand() % answertemp.size();
                     if (randomnum == i)
                     {
-                        std::cout << answertemp.at(8 - i);
+                        std::cout << "Sans\n\n";
                         answertemp.erase(answertemp.begin() + 8 - i);
                         getI = i;
                     }
                     else
                     {
-                        std::cout << answertemp.at(randomindex - i);
-                        answertemp.erase(answertemp.begin() + (randomindex - i));
+                        if (answertemp.at(randomindex) == "Sans\n\n")
+                        {
+                            randomindex = rand() % answertemp.size();
+                        }
+                        std::cout << answertemp.at(randomindex);
+                        if (i == 0)
+                            answertemp.erase(answertemp.begin() + (randomindex));
+                        else
+                        {
+                            if (randomindex == 0)
+                                randomindex = 1;
+                            answertemp.erase(answertemp.begin() + (randomindex - 1));
+                        }
                     }
                 }
                 std::string AnswerToQuestion;
                 std::cin >> AnswerToQuestion;
                 if (AnswerToQuestion == std::to_string(getI))
                 {
-                    std::cout << "Correct";
+                    std::cout << "Correct\n\n";
+                    numberCorrect++;
                 }
                 else
                 {
-                    std::cout << "Incorrect";
+                    std::cout << "Incorrect\n\n";
                 }
                 NoQuestion[8] = false;
             }
@@ -363,28 +471,40 @@ int main()
                 int getI;
                 for (int i = 0; i < 4; i++)
                 {
-                    int randomindex = rand() % 10;
+                    int randomindex = rand() % answertemp.size();
                     if (randomnum == i)
                     {
-                        std::cout << answertemp.at(9 - i);
-                        answertemp.erase(answertemp.begin() + 9 - i);
+                        std::cout << "Doom guy\n\n";
+                        answertemp.erase(answertemp.end() - i);
                         getI = i;
                     }
                     else
                     {
-                        std::cout << answertemp.at(randomindex - i);
-                        answertemp.erase(answertemp.begin() + (randomindex - i));
+                        if (answertemp.at(randomindex) == "Doom guy\n\n")
+                        {
+                            randomindex = rand() % answertemp.size();
+                        }
+                        std::cout << answertemp.at(randomindex);
+                        if (i == 0)
+                            answertemp.erase(answertemp.begin() + (randomindex));
+                        else
+                        {
+                            if (randomindex == 0)
+                                randomindex = 1;
+                            answertemp.erase(answertemp.begin() + (randomindex - 1));
+                        }
                     }
                 }
                 std::string AnswerToQuestion;
                 std::cin >> AnswerToQuestion;
                 if (AnswerToQuestion == std::to_string(getI))
                 {
-                    std::cout << "Correct";
+                    std::cout << "Correct\n\n";
+                    numberCorrect++;
                 }
                 else
                 {
-                    std::cout << "Incorrect";
+                    std::cout << "Incorrect\n\n";
                 }
                 NoQuestion[9] = false;
             }
@@ -392,8 +512,16 @@ int main()
                 i--;
             break;
         }
-
+        if (i == consolein - 1)
+        {
+            std::cout << " You got::\n\n ";
+            std::cout << numberCorrect;
+            std::cout << "\n---\n ";
+            std::cout << consolein;
+            std::cout << "\n\n Correct";
+        }
     }
+    
 }
 
 
